@@ -25,3 +25,5 @@ create table tasks(
     user_id integer
 );
 
+drop table tasks;
+drop database lab1;
