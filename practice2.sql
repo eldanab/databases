@@ -39,8 +39,28 @@ values ( default, 2, 2000000);
 insert into countries default values;
 
 --10th task
-create table countries_new (like countries);
+create table countries_new (like countries including all);
 
+--11th task
+insert into countries_new select * from countries;
 
+--12th task
+update countries_new set region_id = 1 where region_id is null;
+
+--13th task
+select country_name, population * 1.1 as "New Population" from countries_new;
+
+--14th task
+delete from countries where population < 100000;
+
+--15th task
+delete from countries_new
+       where country_id in (select country_id from countries)
+       returning*;
+
+--16th task
+delete from countries returning*;
+
+select * from countries_new;
 select * from countries;
 
