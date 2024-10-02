@@ -72,3 +72,4 @@ where department = (select code from departments where name = 'IT');
 delete from employees;
 
 
+
