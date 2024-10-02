@@ -71,5 +71,3 @@ where department = (select code from departments where name = 'IT');
 --19th task
 delete from employees;
 
-
-
