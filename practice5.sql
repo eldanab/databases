@@ -109,6 +109,5 @@ select max(grade) from customers;
 
 --12(alternative way)
 select grade from customers
-where grade is not null
-order by grade desc
+order by grade desc nulls last
 limit 1;
