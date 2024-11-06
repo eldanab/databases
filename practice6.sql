@@ -49,26 +49,17 @@ INSERT INTO employees (first_name, last_name, email, phone_number, salary, depar
 ('Evan', 'Miller', 'emiller@example.com', '555-3333', 80000, NULL),
 ('Grace', 'Kim', 'gkim@example.com', '555-4444', 69000, NULL);
 
-create index idx_employee_department_id on employees(department_id);
-
-create index idx_department_id on departments(department_id);
-
-create index idx_location_id on departments(location_id);
-
 
 --3
-explain analyze
 select e.first_name, e.last_name, e.department_id, d.department_name from employees e
 join departments d on d.department_id = e.department_id;
 
 --4
-explain analyze
 select e.first_name, e.last_name, e.department_id, d.department_name from employees e
 join departments d on d.department_id = e.department_id
 where e.department_id in (4, 8);
 
 --5
-explain analyze
 select e.first_name, e.last_name, e.department_id, d.department_name, l.city, l.state_province from employees e
 join departments d on e.department_id = d.department_id
 join locations l on d.location_id = l.location_id;
@@ -78,6 +69,5 @@ select * from departments d
 left join employees e on d.department_id = e.department_id;
 
 --7
-explain analyze
 select e.first_name, e.last_name, e.department_id, d.department_name from employees e
 left join departments d on e.department_id = d.department_id;
