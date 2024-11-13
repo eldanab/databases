@@ -20,8 +20,10 @@ select * from employees where substring(first_name from 1 for 4) = 'abcd';
 
 --5
 create index idx_budget on departments(budget);
-create index idx_dep_id_salary on employees(department_id, salary);
+create index idx_dep_id on employees(department_id);
+create index idx_salary_employees on employees(salary);
 
+explain analyze
 select * from employees e
 join departments d
 on d.department_id = e.department_id
