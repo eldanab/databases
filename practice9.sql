@@ -113,17 +113,20 @@ create or replace function complex_calculation(n1 integer, n2 integer, s1 varcha
 returns varchar as
 $$
 declare
-    num_res integer;
-    str_res varchar;
     result varchar;
 begin
+    declare
+        num_res integer;
     begin
         num_res = n1 + n2;
+        result = 'Sum_res: ' || num_res;
     end;
+    declare
+        str_res varchar;
     begin
         str_res := s1 || s2;
+        result = result || '; Concatenation: ' || str_res;
     end;
-    result = 'Concatenation: ' || str_res || '; Sum: ' || num_res;
     return result;
 END;
 $$
